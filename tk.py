@@ -1,0 +1,78 @@
+from tkinter import *
+from PIL import Image
+#from PIL import ImageTK
+
+
+def openSpotify():
+	print("Open Spotify")
+	os.system("start Spotify.lnk")
+	
+def closeSpotify():
+	print("Close Spotify")
+	os.system("TASKKILL /F /IM Spotify.exe")
+    
+window = Tk()
+scrollbar = Scrollbar(window)
+window.geometry("650x600")
+window.title("M.I.G.I.")
+scrollbar.pack(side = RIGHT, fill = Y)
+spc = Label(window, text = " ")
+lbl2 = Label(window, text = "M.I.G.I.: Music Interaction and Gesture Identification", font = ("Arial Bold", 12), anchor = "w")
+desc = Label(window, text = "	MIGI uses Leap Motion gesture identification and the Windows API to ", anchor = "w")
+desc2 = Label(window, text = "	give users an easy, intuitive way to interact with their media player.", anchor = "w") 
+lbl1 = Label(window, text = "Gesture Interaction Options", font = ("Arial Bold", 12), anchor = "w")
+nextSong = Label(window, text = "Next Song", font = ("Arial Bold", 9), anchor = "w")
+previous = Label(window, text = "Previous Song", font = ("Arial Bold", 9), anchor = "w")
+play = Label(window, text = "Play/Pause", font = ("Arial Bold", 9), anchor = "w")
+mute = Label(window, text = "Mute/Unmute", font = ("Arial Bold", 9), anchor = "w")
+open = Button(window, text = "Open Spotify", font = ("Arial Bold", 9), anchor = "w", command = openSpotify)
+close = Button(window, text = "Close Spotify", font = ("Arial Bold", 9), anchor = "w", command = closeSpotify)
+volup = Label(window, text = "Raise Volume", font = ("Arial Bold", 9), anchor = "w")
+voldown = Label(window, text = "Lower Volume", font = ("Arial Bold", 9), anchor = "w")
+
+odesc = Label(window, text =  "	To open Spotify, place two open hands over the Leap Motion.", font = ("Arial", 9))
+cdesc = Label(window, text =  "	To close Spotify, place one open hand and one fist over the Leap Motion.", font = ("Arial", 9))
+nsdesc = Label(window, text = "	To skip to the next song, wave your open hand from left to right above the Leap Motion.", font = ("Arial", 9))
+psdesc = Label(window, text = "	To skip to the previous song, wave your open hand from right to left above the Leap Motion.", font = ("Arial", 9))
+ppdesc = Label(window, text = "	To play or pause music, make a downwards tapping motion with your pointer finger.", font = ("Arial", 9)) 
+mudesc = Label(window, text = "	To mute or unmute music, make a forwards tapping motion towards your screen with your pointer finger.", font = ("Arial", 9)) 
+vudesc = Label(window, text = "	To raise the volume of your music, swipe up, away from the Lepa Motion, with an open hand.", font = ("Arial", 9)) 
+vddesc = Label(window, text = "	To lower the volume of your music, swipe down, towards the Leap Motion, with an open hand.", font = ("Arial", 9))
+
+swipe = PhotoImage(file = "swipe.gif")
+screen = PhotoImage(file = "screen.gif")
+key = PhotoImage(file = "key.gif")
+#open = PhotoImage(file = "twohands.gif")
+#close = PhotoImage(file = "close.gif")
+swipePic = Label(image = swipe)
+screenTap = Label(image = screen)
+keyTap = Label(image = key)
+#openLabel = Label(image = open)
+#closeLabel = Label(image = close)
+
+lbl2.pack(anchor = "w", pady = (5, 5), padx = (30, 0))
+desc.pack(anchor = "w")
+desc2.pack(anchor = "w")
+spc.pack(anchor = "w")
+spc.pack()
+spc.pack()
+
+lbl1.pack(anchor = "w", pady = (5, 5), padx = (30, 0))
+open.pack(anchor = "w", padx = (5, 5), pady = (5, 5))
+odesc.pack(anchor = "w")
+close.pack(anchor = "w", padx = (5, 5), pady = (5, 5))
+cdesc.pack(anchor = "w")
+nextSong.pack(anchor = "w", pady = (5, 5))
+nsdesc.pack(anchor = "w")
+previous.pack(anchor = "w", pady = (5, 5))
+psdesc.pack(anchor = "w")
+play.pack(anchor = "w", pady = (5, 5))
+ppdesc.pack(anchor = "w")
+volup.pack(anchor = "w", pady = (5, 5))
+vudesc.pack(anchor = "w")
+voldown.pack(anchor = "w", pady = (5, 5))
+vddesc.pack(anchor = "w")
+mute.pack(anchor = "w", pady = (5, 5))
+mudesc.pack(anchor = "w")
+
+window.mainloop()
